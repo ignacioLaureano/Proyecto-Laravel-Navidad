@@ -11,7 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('characters', function (Blueprint $table) {
+            $table->id('id')->primary()->autoIncrement();
+            $table->string('name')->default('player');
+            $table->integer('level')->default(1);
+            $table->dateTime('account_creation');
+            $table->boolean('isActive')->nullable();
+            $table->enum('genre',['male','female']);
+            $table->enum('type',['mental','logic']);
+        });
     }
 
     /**
@@ -19,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('characters');
     }
 };
