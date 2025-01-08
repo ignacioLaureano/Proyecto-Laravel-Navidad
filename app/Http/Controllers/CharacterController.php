@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Character;
 class CharacterController extends Controller
 {
     /**
@@ -51,7 +52,17 @@ class CharacterController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $characters = Character::find($id);
+        $characters -> name = $request->name;~
+        $characters -> level = $request->level;
+        $characters -> account_creation = $request->account_creation;
+        $characters -> isActive = $request->isActive;
+        $characters -> genre = $request->genre;
+        $characters -> type = $request->type;
+
+        $characters->save();
+
+        return redirect()->route('characters.index');
     }
 
     /**
