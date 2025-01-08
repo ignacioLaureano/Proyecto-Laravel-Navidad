@@ -33,7 +33,7 @@ class CharacterController extends Controller
     {
         $characters = new Character;
         $characters -> name = $request->name;~
-        $characters -> level = $request->level;
+      //  $characters -> level = $request->level;
         $characters -> account_creation = $request->account_creation;
         $characters -> isActive = $request->isActive;
         $characters -> genre = $request->genre;
