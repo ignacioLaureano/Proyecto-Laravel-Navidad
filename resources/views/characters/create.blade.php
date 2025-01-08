@@ -7,6 +7,8 @@
     <label for="account_creation">Fecha de registro:</label>
     <input type="date" name="account_creation"/>
     
+    <label for="genre">Genero:</label>
+    <input type="text" name="genre">
 
 
     <button type="submit">Enviar</button>
