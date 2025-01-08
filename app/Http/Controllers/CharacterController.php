@@ -12,7 +12,10 @@ class CharacterController extends Controller
      */
     public function index()
     {
-        //
+        $characters_all = Character::all();
+        $characters_all = Character::paginate(1);
+
+        return view('characters.index', ['characters_all' => $characters_all]);
     }
 
     /**
@@ -20,7 +23,7 @@ class CharacterController extends Controller
      */
     public function create()
     {
-        //
+        return view('characters.create');
     }
 
     /**
@@ -28,7 +31,17 @@ class CharacterController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $characters = new Character;
+        $characters -> name = $request->name;~
+        $characters -> level = $request->level;
+        $characters -> account_creation = $request->account_creation;
+        $characters -> isActive = $request->isActive;
+        $characters -> genre = $request->genre;
+        $characters -> type = $request->type;
+
+        $characters->save();
+
+        return redirect()->route('characters.index');
     }
 
     /**
@@ -44,7 +57,8 @@ class CharacterController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $characters = Character::find($id);
+        return view('characters.edit', ['character' => $characters]);
     }
 
     /**
@@ -55,7 +69,6 @@ class CharacterController extends Controller
         $characters = Character::find($id);
         $characters -> name = $request->name;~
         $characters -> level = $request->level;
-        $characters -> account_creation = $request->account_creation;
         $characters -> isActive = $request->isActive;
         $characters -> genre = $request->genre;
         $characters -> type = $request->type;
@@ -70,6 +83,9 @@ class CharacterController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $characters = Character::find($id);
+        $characters -> delete();
+
+        return redirect()->route('characters.index');
     }
 }
