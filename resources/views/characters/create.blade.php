@@ -11,13 +11,27 @@
     <div class="radio-group">
         <label>Gender</label>
         <div class="radio-option">
-            <input type="radio" value="H" name="gender">
-            <label>Male</label>
+            <input type="radio" value="male" name="gender">
+            <label>Hombre</label>
         </div>
-        <br>
+
         <div class="radio-option">
-            <input type="radio" value="M" name="gender">
-            <label>Female</label>
+            <input type="radio" value="female" name="gender">
+            <label>Mujer</label>
+        </div>
+    </div>
+
+    <!-- Type !-->
+    <div class="radio-group2">
+        <label>Tipo de juego: </label>
+        <div class="radio-option2">
+            <input type="radio" value="mental" name="type">
+            <label>Mentales</label>
+        </div>
+
+        <div class="radio-option2">
+            <input type="radio" value="logic" name="type">
+            <label>Logicos</label>
         </div>
     </div>
 
